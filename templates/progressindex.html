@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    fodshfo
+    <div class="progress-wrapper">
+      <div
+        id="progress-bar"
+        class="progress-bar"
+        style="background-color: #68a9ef; width: 0%"
+      >
+        &nbsp;
+      </div>
+    </div>
+    <div id="progress-bar-message">Waiting for progress to start...</div>
+    <script src="{% static 'custom_script.js' %}"></script>
+    <script>
+      // vanilla JS version
+      document.addEventListener("DOMContentLoaded", function () {
+        var progressUrl = "{% url 'celery_progress:task_status' task_id %}";
+        console.log("progressUrl:", progressUrl); // add this line to check if progressUrl is set correctly
+        CeleryProgressBar.initProgressBar(progressUrl);
+        console.log("ProgressBar initialized"); // add this line to check if the progress bar is being initialized
+      });
+    </script>
+  </body>
+</html>

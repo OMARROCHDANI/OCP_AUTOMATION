@@ -1,0 +1,13 @@
+{% for file in files %}
+<a href="{{ MEDIA_URL }}{{ file.file_field.url }}" download
+  >{{ file.file_field.name }}</a
+>
+<form method="post" action="{% url 'file_list' %}">
+  {% csrf_token %}
+  <input type="hidden" name="file_id" value="{{ file.id }}" />
+  <input type="hidden" name="user_id" value="{{ file.user.id }}" />
+  <!-- Add the user's ID -->
+  <button type="submit">Delete</button>
+</form>
+<br />
+{% endfor %}

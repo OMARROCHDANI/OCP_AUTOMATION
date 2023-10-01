@@ -1,0 +1,13 @@
+<!-- template_name.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>File Details</title>
+  </head>
+  <body>
+    <h1>Latest File Details</h1>
+    <p>File Name: {{ file.file_field.name }}</p>
+    <p>File Size: {{ file.file_field.size }}</p>
+    <a href="{{ file.file_field.url }}">Download File</a>
+  </body>
+</html>

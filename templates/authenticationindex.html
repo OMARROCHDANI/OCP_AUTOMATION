@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% for message in messages %}
+    <div
+      class="alert alert-{{ message.tags }} alert-dismissible fade show "
+      role="alert"
+    >
+      <strong>Message:</strong> {{message}}
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span arial-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+
+    <h3>Welcome to ocp Automation</h3>
+
+    {% if user_is_authenticated %}
+    <h3>Hello {{ fname }}</h3>
+    <h3>your successfully logged in</h3>
+    {% if user.is_superuser %}
+    <a href="http://127.0.0.1:8000/admin/">
+      <button type="submit">Admin Dashboard</button></a
+    >
+    {% endif %}
+    <form method="post" action="{% url 'run_script' %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">Run Script</button>
+    </form>
+    <a href="/authentication/signout/"
+      ><button type="submit">Signout</button></a
+    >
+    {% else %}
+
+    <a href="/authentication/signup/"> <button type="submit">Signup</button></a>
+    <a href="/authentication/signin/"><button type="submit">Signin</button></a>
+    {% endif %}
+  </body>
+</html>

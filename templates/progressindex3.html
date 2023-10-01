@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    auto
+    <div class="progress-wrapper">
+      <div
+        id="progress-bar"
+        class="progress-bar"
+        style="background-color: #68a9ef; width: 0%"
+      >
+        &nbsp;
+      </div>
+    </div>
+    <div id="progress-bar-message">Waiting for progress to start...</div>
+    <button id="hidden-button" style="display: none">Hidden Button</button>
+    <script src="{% static 'js/custom_script.js' %}"></script>
+    <script>
+      // vanilla JS version
+      document.addEventListener("DOMContentLoaded", function () {
+        var progressUrl = "{% url 'celery_progress:task_status' task_id %}";
+        console.log("progressUrl:", progressUrl); // add this line to check if progressUrl is set correctly
+        CeleryProgressBar.initProgressBar(progressUrl);
+        console.log("ProgressBar initialized"); // add this line to check if the progress bar is being initialized
+
+        var progressBarMessage = document.getElementById(
+          "progress-bar-message"
+        );
+        var hiddenButton = document.getElementById("hidden-button");
+
+        // Check if the progress bar message changes to "Success! Done"
+        var observer = new MutationObserver(function (mutationsList) {
+          for (var mutation of mutationsList) {
+            if (
+              mutation.type === "childList" &&
+              mutation.target.textContent === "Success! Done"
+            ) {
+              hiddenButton.style.display = "block";
+              hiddenButton.innerHTML =
+                '<a href="http://127.0.0.1:8000/file_management/latest_file/">Example URL</a>';
+            }
+          }
+        });
+
+        observer.observe(progressBarMessage, { childList: true });
+      });
+    </script>
+  </body>
+</html>
