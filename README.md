@@ -9,15 +9,20 @@ Welcome to OCP automation – your dedicated platform for precision data extract
 # Features
 
 User Authentication:
+
 - Create a secure account to access personalized features.
 - Log in securely to monitor and manage your data extraction tasks.
 Targeted Scraping and Automation:
+
 - Utilize specialized scraping techniques and custom automation scripts to extract specific data from Portail-OCP.
 - Real-time updates ensure you stay informed about the progress of your data extraction tasks.
+
 File Format Flexibility:
 - Run automation scripts that generate diverse file formats, such as xlsx and more, for convenient data organization and analysis.
 - Download these files directly from your user profile.
+  
 Task Progress Tracking:
+
 - Transparently monitor the progress of your data extraction tasks.
 ## How It Works
 
