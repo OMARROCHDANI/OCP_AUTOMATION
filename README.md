@@ -12,6 +12,7 @@ User Authentication:
 
 - Create a secure account to access personalized features.
 - Log in securely to monitor and manage your data extraction tasks.
+  
 Targeted Scraping and Automation:
 
 - Utilize specialized scraping techniques and custom automation scripts to extract specific data from Portail-OCP.
