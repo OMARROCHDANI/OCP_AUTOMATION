@@ -28,13 +28,20 @@ Task Progress Tracking:
 ## How It Works
 
 **User Registration:**
+
 - Create your account with ease, ensuring a secure and personalized experience.
+  
 **Data Extraction and Automation:**
+  
 - Run specific scraping and automation scripts customized for the Portail-OCP website .
 - Observe the real-time progress of your data extraction tasks, with detailed task summaries available in your user dashboard.
+  
 **Retrieve Targeted Data:**
+
 - Explore the curated results and download the extracted data.
+  
 **Save Data and Analyze:**
+
 - Save important data for future use directly from the extraction results.
 
 ## Installation
